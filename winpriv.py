@@ -8,6 +8,7 @@ class AdminCheck:
             try:
                 subprocess.check_call(['net', 'session'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
                 return True
+            except:  # This 'except' block was missing to catch errors from subprocess.check_call
                 return False
 
 class RegOps:
