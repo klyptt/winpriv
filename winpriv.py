@@ -8,8 +8,6 @@ class AdminCheck:
             try:
                 subprocess.check_call(['net', 'session'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
                 return True
-            except:
-                print("Warn: Admin check fail. Proceeding.")
                 return False
 
 class RegOps:
@@ -74,7 +72,7 @@ class PrivOpt:
 def main():
     if not AdminCheck().isAd():
         print("\n" + "="*70)
-        print("  ADMIN REQUIRED.")
+        print("  Administration permissions required.")
         print("  Run as administrator.")
         print("="*70 + "\n")
         sys.exit(1)
@@ -82,7 +80,7 @@ def main():
     print("\n" + "="*70)
     print("        Win Priv Config (Admin)")
     print("="*70)
-    print("  RISK: Registry changes. Restore point advised.")
+    print("  RISK: This code changes your registry, so create a restore point for your computer before use.")
     print("="*70 + "\n")
 
     opts = {
@@ -110,7 +108,7 @@ def main():
         c = input("Choice: ").strip().upper()
 
         if c == 'Q':
-            print("Exit. Reboot for changes.")
+            print("Exiting, reboot for changes.")
             break
         elif c == 'S':
             print("\n--- Current Status ---")
@@ -136,9 +134,9 @@ def main():
             elif sub_c == 'B':
                 continue
             else:
-                print("Bad sub-choice.")
+                print("Incorrect sub choice.")
         else:
-            print("Bad choice.")
+            print("Incorrect choice.")
 
 if __name__ == "__main__":
     main()
